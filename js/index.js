@@ -12,7 +12,13 @@ function greetProgrammer() {
   greet("Naureen");
   => "Hello, Naureen!"
 */
+// Function to greet a specific person
 function greet(name) {
+  // Ensure name is a valid string
+  if (typeof name !== "string" || name.trim() === "") {
+    console.error("Please provide a valid name.");
+    return;
+  }
   console.log(`Hello, ${name}!`);
 }
 
@@ -26,6 +32,11 @@ function greet(name) {
   => "Hello, Sunny!"
 */
 function greetWithDefault(name = "programmer") {
+  // Ensure name is a valid string
+  if (typeof name !== "string" || name.trim() === "") {
+    console.error("Please provide a valid name.");
+    return;
+  }
   console.log(`Hello, ${name}!`);
 }
 
@@ -35,10 +46,15 @@ function greetWithDefault(name = "programmer") {
   console.log(sum);
   => 3
 */
+// Function to add two numbers and return the result
 function add(num1, num2) {
+  // Ensure both inputs are numbers
+  if (typeof num1 !== "number" || typeof num2 !== "number") {
+    console.error("Both arguments must be numbers.");
+    return null;
+  }
   return num1 + num2;
 }
-
 /*
   You should be able to call this function with two arguments and get back its return value:
   const result = halve(4);
@@ -49,8 +65,12 @@ function add(num1, num2) {
   const result = halve("two")
   => null
 */
+// Function to halve a number, with input validation
 function halve(number) {
-  if (typeof number !== "number") return null;
-
+  // Check if the input is a valid number
+  if (typeof number !== "number" || isNaN(number)) {
+    console.error("Input must be a valid number.");
+    return null;
+  }
   return number / 2;
 }
